@@ -2,6 +2,6 @@
 # the script runs nginx as nginx user
 pkill apache2
 chown nginx:nginx /etc/nginx/nginx.conf
-chmod u+x /etc/nginx/nginx.conf
+chmod a+rwx /etc/nginx/nginx.conf
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 sudo -u nginx service nginx start
