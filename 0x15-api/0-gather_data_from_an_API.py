@@ -18,7 +18,7 @@ if __name__ == "__main__":
     todos_res = requests.get(api_url + "todos", params={
         "userId": sys.argv[1]}).json()
 
-    completed_task = [tt.get("title") for tt in todos_res if tt.get(
+    completed_task = [x.get("title") for x in todos_res if x.get(
         "completed") is True]
 
     print("Employee {} is done with tasks({}/{}):".format(
