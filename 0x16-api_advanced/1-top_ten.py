@@ -6,10 +6,16 @@ def top_ten(subreddit):
     """ Program that queries Reddit API and prints the titles of
     first 10 hot posts listed for a given subreddit.
     """
-    url_base = 'http://www.reddit.com/r/'
-    url_query = '{:s}/hot.json?limit={:d}'.format(subreddit, 10)
-    headers = {'user-agent': 'egsyquest'}
-    r = requests.get(url_base + url_query, headers=headers)
+    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
+    headers = {
+        "User-Agent": "0x16-api_advanced:project:\
+        v1.0.0 (by /u/firdaus_cartoon_jr)"
+    }
+    params = {
+        "limit": 10
+    }
+    r = requests.get(url, headers=headers, params=params,
+                     allow_redirects=False)
 
     if (r.status_code is 302):
         print("None")
